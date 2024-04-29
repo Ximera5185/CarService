@@ -10,6 +10,10 @@ namespace CarService
     {
         static void Main(string [] args)
         {
+            DataBase db = new DataBase();
+
+            db.Show();
+            
         }
     }
 }
