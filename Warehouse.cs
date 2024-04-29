@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarService
 {
-    internal class Car
+    internal class Warehouse
     {
-        private List<SparePart> _spares = new List<SparePart>();
     }
 }
