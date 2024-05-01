@@ -10,9 +10,16 @@ namespace CarService
     {
         static void Main(string [] args)
         {
-            DataBase db = new DataBase();
+            Console.WriteLine("База данных");
+            DataBase dataBase = new DataBase();
 
-            db.Show();
+            dataBase.Show();
+
+
+            Console.WriteLine("Склад");
+            Warehouse warehouse = new Warehouse();
+
+            warehouse.Show();
             
         }
     }
