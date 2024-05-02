@@ -16,30 +16,42 @@ namespace CarService
         }
         private void AddParts() 
         {
-            _parts.Add(new SparePart("Шаровая","Новая"));
-            _parts.Add(new SparePart("Крестовина", "Новая"));
-            _parts.Add(new SparePart("Амортизатор", "Новая"));
-            _parts.Add(new SparePart("Кардан", "Новая"));
-            _parts.Add(new SparePart("Выхлопная труба", "Новая"));
-            _parts.Add(new SparePart("Фара Левая", "Новая"));
-            _parts.Add(new SparePart("Фара Правая", "Новая"));
-            _parts.Add(new SparePart("Зеркало", "Новая"));
-            _parts.Add(new SparePart("Бампер", "Новая"));
-            _parts.Add(new SparePart("Крышка богажника", "Новая"));
-            _parts.Add(new SparePart("Фаркоп", "Новая"));
-            _parts.Add(new SparePart("Лючек бензобака", "Новая"));
-            _parts.Add(new SparePart("Капот", "Новая"));
-            _parts.Add(new SparePart("Поворотник Левый", "Новая"));
-            _parts.Add(new SparePart("Поворотник Правый", "Новая"));
-            _parts.Add(new SparePart("Дверь Левая передняя", "Новая"));
-            _parts.Add(new SparePart("Дверь Правая передняя", "Новая"));
-            _parts.Add(new SparePart("Дверь Левая Задняя", "Новая"));
-            _parts.Add(new SparePart("Дверь Правая Задняя", "Новая"));
+            _parts.Add(new SparePart("Шаровая"));
+            _parts.Add(new SparePart("Крестовина"));
+            _parts.Add(new SparePart("Амортизатор"));
+            _parts.Add(new SparePart("Кардан"));
+            _parts.Add(new SparePart("Выхлопная труба"));
+            _parts.Add(new SparePart("Фара Левая"));
+            _parts.Add(new SparePart("Фара Правая"));
+            _parts.Add(new SparePart("Зеркало"));
+            _parts.Add(new SparePart("Бампер"));
+            _parts.Add(new SparePart("Крышка богажника"));
+            _parts.Add(new SparePart("Фаркоп"));
+            _parts.Add(new SparePart("Лючек бензобака"));
+            _parts.Add(new SparePart("Капот"));
+            _parts.Add(new SparePart("Поворотник Левый"));
+            _parts.Add(new SparePart("Поворотник Правый"));
+            _parts.Add(new SparePart("Дверь Левая передняя"));
+            _parts.Add(new SparePart("Дверь Правая передняя"));
+            _parts.Add(new SparePart("Дверь Левая Задняя"));
+            _parts.Add(new SparePart("Дверь Правая Задняя"));
         }
 
         public List<SparePart> GetParts()
         {
             return _parts;
+        }
+
+        public List<SparePart> GetParts(int number) 
+        {
+            List<SparePart> parts = new List<SparePart>();
+
+            for (int i = 0; i < number; i++)
+            {
+                parts.Add(_parts[UserUtils.GetRandomNumber(_parts.Count)]);
+            }
+
+            return parts;
         }
 
         public void Show() 

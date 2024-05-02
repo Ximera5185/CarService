@@ -11,28 +11,11 @@ namespace CarService
         public SparePart(string name) 
         {
             Name = name;
-
-            State = GetState();
-        }
-
-        public SparePart(string name, string state) 
-        {
-            Name = name;
-
-            State = state;
         }
 
         public string Name { get; private set; }
 
         public string State { get; private set; }
 
-        private string GetState()
-        {
-            string [] states = { "Сломанная", "Целая" };
-
-            int randomNumber = UserUtils.GetRandomNumber(states.Length);
-
-            return states [randomNumber];
-        }
     }
 }
