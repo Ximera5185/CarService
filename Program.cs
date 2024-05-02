@@ -10,11 +10,12 @@ namespace CarService
     {
         static void Main(string [] args)
         {
-            Car car = new Car("Машина");
-            Car car1 = new Car("Машина");
+            CreatorCar creatorCar = new CreatorCar();   
 
-            car.Show();
-            car1.Show();
+            Car car = creatorCar.CreateCar();
+
+            car.ShowWorkingParts();
+            car.ShowBrokenParts();
         }
     }
 }

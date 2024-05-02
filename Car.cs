@@ -30,5 +30,25 @@ namespace CarService
         {
             Console.WriteLine(Name);
         }
+
+        public void ShowWorkingParts() 
+        {
+            Console.WriteLine("WorkingParts");
+
+            foreach (SparePart part in _workingParts)
+            {
+                Console.WriteLine($" part - {part.Name}");
+            }
+        }
+
+        public void ShowBrokenParts() 
+        {
+            Console.WriteLine("brokenParts");
+
+            foreach (SparePart part in _brokenParts)
+            {
+                Console.WriteLine($" part - {part.Name}");
+            }
+        }
     }
 }
