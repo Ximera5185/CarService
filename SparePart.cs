@@ -14,8 +14,5 @@ namespace CarService
         }
 
         public string Name { get; private set; }
-
-        public string State { get; private set; }
-
     }
 }

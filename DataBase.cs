@@ -14,6 +14,7 @@ namespace CarService
         {
             AddParts();
         }
+
         private void AddParts() 
         {
             _parts.Add(new SparePart("Шаровая"));
@@ -39,7 +40,9 @@ namespace CarService
 
         public List<SparePart> GetParts()
         {
-            return _parts;
+            List<SparePart> parts = new List<SparePart>(_parts);
+
+            return parts;
         }
 
         public List<SparePart> GetParts(int number) 

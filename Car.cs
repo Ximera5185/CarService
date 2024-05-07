@@ -8,16 +8,13 @@ namespace CarService
 {
     internal class Car
     {
-        private List<SparePart> _workingParts = new List<SparePart>();
         private List<SparePart> _brokenParts = new List<SparePart>();
 
-        public Car(string name, List<SparePart> workingParts, List<SparePart> brokenParts) 
+        public Car(string name, List<SparePart> brokenParts) 
         {
             InstanceCounter++;
 
             Name = name + InstanceCounter;
-
-            _workingParts = workingParts;
 
             _brokenParts = brokenParts;
         }
@@ -29,16 +26,6 @@ namespace CarService
         public void Show() 
         {
             Console.WriteLine(Name);
-        }
-
-        public void ShowWorkingParts() 
-        {
-            Console.WriteLine("WorkingParts");
-
-            foreach (SparePart part in _workingParts)
-            {
-                Console.WriteLine($" part - {part.Name}");
-            }
         }
 
         public void ShowBrokenParts() 

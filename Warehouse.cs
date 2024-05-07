@@ -21,8 +21,7 @@ namespace CarService
         {
             foreach (SparePart part in _parts)
             {
-                Console.WriteLine($"{part.Name} {part.State}");
-
+                Console.WriteLine($"{part.Name}");
             }
         }
     }
