@@ -19,10 +19,14 @@ namespace CarService
 
         public void Show() 
         {
+            Console.WriteLine("Запчасти на складе ");
+
             foreach (SparePart part in _parts)
             {
                 Console.WriteLine($"{part.Name}");
             }
+
+            Console.WriteLine();
         }
     }
 }

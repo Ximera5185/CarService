@@ -12,10 +12,7 @@ namespace CarService
         {
             CreatorCar creatorCar = new CreatorCar();   
 
-            Car car = creatorCar.CreateCar();
-
-            car.ShowWorkingParts();
-            car.ShowBrokenParts();
+            Warehouse house = new Warehouse();
         }
     }
 }

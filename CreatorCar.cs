@@ -10,13 +10,10 @@ namespace CarService
     internal class CreatorCar
     {
         private DataBase _dataBase = new DataBase();
-
-        private int _numberWorkingParts = 2;
-        private int _numberBrokenParts = 2;
-
-        public Car CreateCar()
+        
+        public Car Create()
         {
-            return new Car("Машина", _dataBase.GetParts(_numberWorkingParts), _dataBase.GetParts(_numberBrokenParts));
+            return new Car("Машина");
         }
     }
 }

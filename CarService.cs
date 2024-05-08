@@ -8,5 +8,8 @@ namespace CarService
 {
     internal class CarService
     {
+        private List<Car> _cars = new List<Car>();
+
+
     }
 }

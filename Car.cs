@@ -10,32 +10,37 @@ namespace CarService
     {
         private List<SparePart> _brokenParts = new List<SparePart>();
 
-        public Car(string name, List<SparePart> brokenParts) 
+        public Car(string name)
         {
             InstanceCounter++;
 
             Name = name + InstanceCounter;
 
-            _brokenParts = brokenParts;
+            AddBrokenParts();
         }
 
         public static int InstanceCounter { get; private set; }
 
         public string Name { get; private set; }
 
-        public void Show() 
+        public void ShowBrokenParts()
         {
-            Console.WriteLine(Name);
-        }
-
-        public void ShowBrokenParts() 
-        {
-            Console.WriteLine("brokenParts");
+            Console.WriteLine($" Автомобиль {Name}\n" +
+            $" Сломанные запчасти автомобиля : ");
 
             foreach (SparePart part in _brokenParts)
             {
-                Console.WriteLine($" part - {part.Name}");
+                Console.WriteLine($" Запчасть - {part.Name}");
             }
+        }
+
+        private void AddBrokenParts()
+        {
+            DataBase dataBase = new DataBase();
+
+            int maxValueParts = 4;
+
+            _brokenParts = dataBase.GetParts(maxValueParts);
         }
     }
 }
