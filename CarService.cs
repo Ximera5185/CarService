@@ -8,8 +8,18 @@ namespace CarService
 {
     internal class CarService
     {
+        private CreatorCar _creatorCar = new CreatorCar();
+
         private List<Car> _cars = new List<Car>();
 
+        public void Run() 
+        {
+        
+        }
 
+        private void AddCars()
+        {
+            int 
+        }
     }
 }
