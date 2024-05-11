@@ -10,9 +10,7 @@ namespace CarService
     {
         static void Main(string [] args)
         {
-            CreatorCar creatorCar = new CreatorCar();   
-
-            Warehouse house = new Warehouse();
+           CarService carService = new CarService();
         }
     }
 }

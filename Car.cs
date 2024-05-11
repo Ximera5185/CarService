@@ -32,6 +32,8 @@ namespace CarService
             {
                 Console.WriteLine($" Запчасть - {part.Name}");
             }
+
+            Console.WriteLine();
         }
 
         private void AddBrokenParts()

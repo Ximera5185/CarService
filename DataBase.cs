@@ -45,16 +45,24 @@ namespace CarService
             return parts;
         }
 
-        public List<SparePart> GetParts(int number) 
+        public List<SparePart> GetParts(int numberParts) 
         {
-            List<SparePart> parts = new List<SparePart>();
+            List<SparePart> brokenParts = new List<SparePart>();
 
-            for (int i = 0; i < number; i++)
+            List<SparePart> parts = new List<SparePart>(_parts);
+
+            int index;
+
+            for (int i = 0; i < numberParts; i++)
             {
-                parts.Add(_parts[UserUtils.GetRandomNumber(_parts.Count)]);
-            }
+                index = UserUtils.GetRandomNumber(parts.Count);
 
-            return parts;
+                brokenParts.Add(parts[index]);
+
+                parts.Remove(parts [index]);
+            }
+            // Ошибка, в одну машину могут попасть 2 одинаковые сломанные запчасти
+            return brokenParts;
         }
 
         public void Show() 
