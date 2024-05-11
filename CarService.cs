@@ -16,6 +16,8 @@ namespace CarService
 
         public CarService() 
         {
+            AddCars();
+            
             RunSelectMenu();
         }
 
@@ -25,17 +27,23 @@ namespace CarService
 
             bool isProgrammWork = true;
 
-            Console.WriteLine($"Для выхода из программы введите {ExitProgrammMenu}");
+            string inputUser;
 
-            switch (isProgrammWork)
+            while (isProgrammWork)
             {
-                case ExitProgrammMenu:
-                    break;
-            }
+                ShowCars();
 
-            AddCars();   
-            
-            ShowCars();
+                Console.WriteLine($"Для выхода из программы введите {ExitProgrammMenu}");
+
+                inputUser = Console.ReadLine();
+
+                switch (inputUser)
+                {
+                    case ExitProgrammMenu:
+                        isProgrammWork = false;
+                        break;
+                }
+            }
         }
 
         private void AddCars()
@@ -51,11 +59,6 @@ namespace CarService
         private void ShowCars() 
         {
             Console.WriteLine($"Автомобилей для обслуживания {_cars.Count} штук");
-
-            foreach (Car car in _cars)
-            {
-                car.ShowBrokenParts();
-            }
         }
     }
 }
