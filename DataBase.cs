@@ -61,7 +61,7 @@ namespace CarService
 
                 parts.Remove(parts [index]);
             }
-            // Ошибка, в одну машину могут попасть 2 одинаковые сломанные запчасти
+
             return brokenParts;
         }
 

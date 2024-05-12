@@ -87,9 +87,22 @@ namespace CarService
 
         private void RepairCar(int indexCar) 
         {
-            Console.WriteLine(_cars[indexCar].ShowBrokenParts());
+            Console.Clear();
+
+            _cars[indexCar -1].ShowBrokenParts();
 
             Console.ReadKey();
+
+            RepairPart();
+        }
+
+        private void RepairPart() 
+        {
+            int inputUser;
+
+            Console.WriteLine("Введите порядковый номер детали для ремонта");
+
+            inputUser = Convert.ToInt32(Console.ReadLine());
         }
     }
 }

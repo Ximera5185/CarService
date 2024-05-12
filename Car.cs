@@ -28,12 +28,10 @@ namespace CarService
             Console.WriteLine($" Автомобиль {Name}\n" +
             $" Сломанные запчасти автомобиля : ");
 
-            foreach (SparePart part in _brokenParts)
+            for (int i = 0; i < _brokenParts.Count; i++)
             {
-                Console.WriteLine($" Запчасть - {part.Name}");
+                Console.WriteLine($"{i+1} Запчасть - {_brokenParts[i].Name}");
             }
-
-            Console.WriteLine();
         }
 
         private void AddBrokenParts()
