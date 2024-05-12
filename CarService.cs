@@ -12,6 +12,7 @@ namespace CarService
 
         private List<Car> _cars = new List<Car>();
 
+        private Li
         private Warehouse _warehouse = new Warehouse();
 
         public CarService() 
@@ -90,8 +91,6 @@ namespace CarService
             Console.Clear();
 
             _cars[indexCar -1].ShowBrokenParts();
-
-            Console.ReadKey();
 
             RepairPart();
         }

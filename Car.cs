@@ -34,6 +34,11 @@ namespace CarService
             }
         }
 
+        public void RemovePart(int index) 
+        {
+            _brokenParts.Remove(index);
+        }
+
         private void AddBrokenParts()
         {
             DataBase dataBase = new DataBase();
