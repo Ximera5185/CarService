@@ -23,8 +23,8 @@ namespace CarService
 
         private void RunSelectMenu() 
         {
-            const string ExitProgrammMenu = "2";
             const string SelectCarMenu = "1";
+            const string ExitProgrammMenu = "2";
 
             bool isProgrammWork = true;
 
@@ -33,7 +33,7 @@ namespace CarService
             while (isProgrammWork)
             {
                 Console.WriteLine($"Автомобилей для обслуживания {_cars.Count} штук");
-                Console.WriteLine($"Для выбора автомобиля введмте {SelectCarMenu}");
+                Console.WriteLine($"Для выбора автомобиля введите {SelectCarMenu}");
                 Console.WriteLine($"Для выхода из программы введите {ExitProgrammMenu}");
 
                 inputUser = Console.ReadLine();
@@ -41,7 +41,7 @@ namespace CarService
                 switch (inputUser)
                 {
                     case SelectCarMenu:
-                        ShowCars();
+                        SelectCar();
                         break;
                     case ExitProgrammMenu:
                         isProgrammWork = false;
@@ -67,10 +67,29 @@ namespace CarService
 
         private void SelectCar() 
         {
+            int index = 1;
+            int inputUser;
+
+            Console.Clear();
+            Console.WriteLine("Введите порядковый номер автомобиля для его выбора");
+
             foreach (Car car in _cars)
             {
+                Console.WriteLine($"{index} {car.Name}");
 
+                index++;
             }
+
+            inputUser = Convert.ToInt32(Console.ReadLine());
+
+            RepairCar(inputUser);
+        }
+
+        private void RepairCar(int indexCar) 
+        {
+            Console.WriteLine(_cars[indexCar].ShowBrokenParts());
+
+            Console.ReadKey();
         }
     }
 }
