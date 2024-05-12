@@ -12,7 +12,6 @@ namespace CarService
 
         private List<Car> _cars = new List<Car>();
 
-        private Li
         private Warehouse _warehouse = new Warehouse();
 
         public CarService() 
@@ -102,6 +101,11 @@ namespace CarService
             Console.WriteLine("Введите порядковый номер детали для ремонта");
 
             inputUser = Convert.ToInt32(Console.ReadLine());
+
+            if (true)
+            {
+
+            }
         }
     }
 }
