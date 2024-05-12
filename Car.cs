@@ -34,9 +34,14 @@ namespace CarService
             }
         }
 
-        public void RemovePart(int index) 
+        public string GetNamePart(int index) 
         {
-            _brokenParts.Remove(index);
+            return _brokenParts[index].Name;
+        }
+
+        public void RemovePart(int index)
+        {
+            _brokenParts.RemoveAt(index);
         }
 
         private void AddBrokenParts()

@@ -60,11 +60,6 @@ namespace CarService
             }
         }
 
-        private void ShowCars() 
-        {
-            
-        }
-
         private void SelectCar() 
         {
             int index = 1;
@@ -91,20 +86,21 @@ namespace CarService
 
             _cars[indexCar -1].ShowBrokenParts();
 
-            RepairPart();
-        }
-
-        private void RepairPart() 
-        {
             int inputUser;
 
             Console.WriteLine("Введите порядковый номер детали для ремонта");
 
             inputUser = Convert.ToInt32(Console.ReadLine());
 
-            if (true)
+            if (_warehouse.GetParts(_cars[indexCar - 1].GetNamePart(inputUser - 1)))
             {
+                Console.WriteLine("Заменили деталь");
 
+                _cars [indexCar - 1].RemovePart(inputUser - 1);
+            }
+            else
+            {
+                Console.WriteLine("Подходящей детали на складе нет");
             }
         }
     }

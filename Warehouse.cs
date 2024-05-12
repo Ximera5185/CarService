@@ -29,11 +29,11 @@ namespace CarService
             Console.WriteLine();
         }
 
-        public bool GetParts(SparePart brokenPart) 
+        public bool GetParts(string name) 
         {
             foreach (SparePart part in _parts)
             {
-                if (brokenPart.Name == part.Name)
+                if (name == part.Name)
                 {
                     _parts.Remove(part);
 
