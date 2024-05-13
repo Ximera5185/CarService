@@ -66,7 +66,7 @@ namespace CarService
             int inputUser;
 
             Console.Clear();
-            Console.WriteLine("Введите порядковый номер автомобиля для его выбора");
+            Console.WriteLine();
 
             foreach (Car car in _cars)
             {
@@ -75,7 +75,7 @@ namespace CarService
                 index++;
             }
 
-            inputUser = Convert.ToInt32(Console.ReadLine());
+            inputUser = GetUserNumber("Введите порядковый номер автомобиля для его выбора") - 1;
 
             RepairCar(inputUser);
         }
@@ -84,24 +84,42 @@ namespace CarService
         {
             Console.Clear();
 
-            _cars[indexCar -1].ShowBrokenParts();
+            _cars[indexCar].ShowBrokenParts();
 
             int inputUser;
 
-            Console.WriteLine("Введите порядковый номер детали для ремонта");
+            Console.WriteLine();
 
-            inputUser = Convert.ToInt32(Console.ReadLine());
+            inputUser = GetUserNumber("Введите порядковый номер детали для ремонта") -1;
 
-            if (_warehouse.GetParts(_cars[indexCar - 1].GetNamePart(inputUser - 1)))
+            if (_warehouse.GetParts(_cars[indexCar].GetNamePart(inputUser)))
             {
                 Console.WriteLine("Заменили деталь");
 
-                _cars [indexCar - 1].RemovePart(inputUser - 1);
+                _cars [indexCar].RemovePart(inputUser);
             }
             else
             {
                 Console.WriteLine("Подходящей детали на складе нет");
             }
+        }
+
+        private int GetUserNumber(string message)
+        {
+            int number = 0;
+
+            string input = "";
+
+            while (int.TryParse(input, out number) == false)
+            {
+                Console.WriteLine(message);
+
+                input = Console.ReadLine();
+
+                Console.WriteLine("Вы ввели не целое число.");
+            }
+
+            return number;
         }
     }
 }
