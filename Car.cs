@@ -19,6 +19,8 @@ namespace CarService
             AddBrokenParts();
         }
 
+        public int Count => _brokenParts.Count;
+
         public static int InstanceCounter { get; private set; }
 
         public string Name { get; private set; }

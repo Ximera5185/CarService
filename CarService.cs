@@ -10,20 +10,21 @@ namespace CarService
     {
         private CreatorCar _creatorCar = new CreatorCar();
 
-        private List<Car> _cars = new List<Car>();
+        private Queue<Car> _cars = new Queue<Car>();
 
         private Warehouse _warehouse = new Warehouse();
 
+        private int _cashier;
+
         public CarService() 
         {
-            Cashier = 0;
+            _cashier = 0;
 
             AddCars();
             
             RunSelectMenu();
         }
 
-        private int Cashier { get; set; }
 
         private void RunSelectMenu() 
         {
@@ -37,7 +38,7 @@ namespace CarService
             while (isProgrammWork)
             {
                 Console.Clear();
-                Console.WriteLine($"Баланс автосервиса {Cashier}");
+                Console.WriteLine($"Баланс автосервиса {_cashier}");
                 Console.WriteLine($"Автомобилей для обслуживания {_cars.Count} штук");
                 Console.WriteLine($"Для выбора автомобиля введите {SelectCarMenu}");
                 Console.WriteLine($"Для выхода из программы введите {ExitProgrammMenu}");
@@ -47,7 +48,7 @@ namespace CarService
                 switch (inputUser)
                 {
                     case SelectCarMenu:
-                        SelectCar();
+                        Work();
                         break;
                     case ExitProgrammMenu:
                         isProgrammWork = false;
@@ -62,11 +63,11 @@ namespace CarService
 
             for (int i = 0; i < maxValueCars; i++)
             {
-                _cars.Add(_creatorCar.Create());
+                _cars.Enqueue(_creatorCar.Create());
             }
         }
 
-        private void SelectCar() 
+      /*  private void SelectCar() 
         {
             int index = 1;
             int inputUser;
@@ -84,9 +85,9 @@ namespace CarService
             inputUser = GetUserNumber("Введите порядковый номер автомобиля для его выбора") - 1;
 
             RepairCar(inputUser);
-        }
+        }*/
 
-        private void RepairCar(int indexCar) 
+       /* private void RepairCar(int indexCar) 
         {
             int inputUser;
             int monetaryReward = 100;
@@ -106,7 +107,7 @@ namespace CarService
 
                 _cars [indexCar].RemovePart(inputUser);
 
-                Cashier += monetaryReward;
+                _cashier += monetaryReward;
             }
             else
             {
@@ -117,6 +118,48 @@ namespace CarService
             {
                 _cars.RemoveAt(indexCar);
             }
+        }*/
+
+        private void Work() 
+        {
+            int monetaryReward = 100;
+
+            while (_cars.Count > 0)
+            {
+                Car car = _cars.Dequeue();
+
+                ServCar(monetaryReward, car);
+            }
+        }
+
+        private void ServCar(int monetaryReward, Car car)
+        {
+            while (car.Count > 0)
+            {
+                Console.Clear();
+
+               car.ShowBrokenParts();
+
+                Console.WriteLine();
+
+                int inputUser = GetUserNumber("Введите порядковый номер детали для ремонта") - 1;
+
+                if (_warehouse.GetParts(car.GetNamePart(inputUser)))
+                {
+                    Console.WriteLine("Заменили деталь");
+
+                    car.RemovePart(inputUser);
+
+                    _cashier += monetaryReward;
+                }
+                else
+                {
+                    Console.WriteLine("Подходящей детали на складе нет");
+                }
+            }
+
+            Console.WriteLine("Обслуживание машины завершено");
+            Console.ReadKey();
         }
 
         private int GetUserNumber(string message)
