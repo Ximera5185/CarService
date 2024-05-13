@@ -34,6 +34,16 @@ namespace CarService
             }
         }
 
+        public bool GetNamePart() 
+        {
+            if (_brokenParts.Count == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public string GetNamePart(int index) 
         {
             return _brokenParts[index].Name;

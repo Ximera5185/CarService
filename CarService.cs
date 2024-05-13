@@ -16,10 +16,14 @@ namespace CarService
 
         public CarService() 
         {
+            Cashier = 0;
+
             AddCars();
             
             RunSelectMenu();
         }
+
+        private int Cashier { get; set; }
 
         private void RunSelectMenu() 
         {
@@ -32,6 +36,8 @@ namespace CarService
 
             while (isProgrammWork)
             {
+                Console.Clear();
+                Console.WriteLine($"Баланс автосервиса {Cashier}");
                 Console.WriteLine($"Автомобилей для обслуживания {_cars.Count} штук");
                 Console.WriteLine($"Для выбора автомобиля введите {SelectCarMenu}");
                 Console.WriteLine($"Для выхода из программы введите {ExitProgrammMenu}");
@@ -82,11 +88,13 @@ namespace CarService
 
         private void RepairCar(int indexCar) 
         {
+            int inputUser;
+            int monetaryReward = 100;
+
             Console.Clear();
 
             _cars[indexCar].ShowBrokenParts();
 
-            int inputUser;
 
             Console.WriteLine();
 
@@ -97,10 +105,17 @@ namespace CarService
                 Console.WriteLine("Заменили деталь");
 
                 _cars [indexCar].RemovePart(inputUser);
+
+                Cashier += monetaryReward;
             }
             else
             {
                 Console.WriteLine("Подходящей детали на складе нет");
+            }
+
+            if (_cars[indexCar].GetNamePart())
+            {
+                _cars.RemoveAt(indexCar);
             }
         }
 
