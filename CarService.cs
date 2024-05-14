@@ -85,6 +85,7 @@ namespace CarService
             while (car.Count > 0)
             {
                 Console.Clear();
+                Console.WriteLine($"Баланс автосервиса {_cashier}");
 
                 car.ShowBrokenParts();
 
@@ -94,18 +95,19 @@ namespace CarService
 
                 if (_warehouse.GetParts(car.GetNamePart(inputUser)))
                 {
-                    Console.WriteLine("Заменили деталь");
-
                     car.RemovePart(inputUser);
 
                     _cashier += monetaryReward;
+
+                    Console.WriteLine("Заменили деталь");
+                    Console.ReadKey();
                 }
                 else
                 {
                     _cashier -= fine;
 
                     Console.WriteLine("Подходящей детали на складе нет");
-                   
+                    Console.ReadKey();
                 }
             }
 
