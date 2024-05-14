@@ -70,16 +70,17 @@ namespace CarService
         private void Work()
         {
             int monetaryReward = 100;
+            int fine = 100;
 
             while (_cars.Count > 0)
             {
                 Car car = _cars.Dequeue();
 
-                ServCar(monetaryReward, car);
+                ServCar(fine, monetaryReward, car);
             }
         }
 
-        private void ServCar(int monetaryReward, Car car)
+        private void ServCar(int fine,int monetaryReward, Car car)
         {
             while (car.Count > 0)
             {
@@ -101,7 +102,10 @@ namespace CarService
                 }
                 else
                 {
+                    _cashier -= fine;
+
                     Console.WriteLine("Подходящей детали на складе нет");
+                   
                 }
             }
 
