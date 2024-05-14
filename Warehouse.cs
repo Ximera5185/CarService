@@ -43,5 +43,20 @@ namespace CarService
 
             return false;
         }
+
+        public bool GetParts(string name)
+        {
+            foreach (SparePart part in _parts)
+            {
+                if (name == part.Name)
+                {
+                    _parts.Remove(part);
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

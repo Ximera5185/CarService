@@ -70,7 +70,7 @@ namespace CarService
         private void Work()
         {
             int monetaryReward = 100;
-           // int fine = 100;
+            int fine = 100;
 
             while (_cars.Count > 0)
             {
