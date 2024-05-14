@@ -51,6 +51,11 @@ namespace CarService
             return _brokenParts[index].Name;
         }
 
+        public int GetPartPrice(int index) 
+        {
+            return _brokenParts [index].Price;
+        }
+
         public void RemovePart(int index)
         {
             _brokenParts.RemoveAt(index);

@@ -70,7 +70,7 @@ namespace CarService
         private void Work()
         {
             int monetaryReward = 100;
-            int fine = 100;
+           // int fine = 100;
 
             while (_cars.Count > 0)
             {
@@ -80,8 +80,10 @@ namespace CarService
             }
         }
 
-        private void ServCar(int fine,int monetaryReward, Car car)
+        private void ServCar(int fine, int monetaryReward, Car car)
         {
+            int pricePart;
+
             while (car.Count > 0)
             {
                 Console.Clear();
@@ -97,7 +99,9 @@ namespace CarService
                 {
                     car.RemovePart(inputUser);
 
-                    _cashier += monetaryReward;
+                    pricePart = car.GetPartPrice(inputUser);
+
+                    _cashier += (monetaryReward + pricePart);
 
                     Console.WriteLine("Заменили деталь");
                     Console.ReadKey();
