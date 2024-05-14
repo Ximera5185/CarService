@@ -32,7 +32,7 @@ namespace CarService
 
             for (int i = 0; i < _brokenParts.Count; i++)
             {
-                Console.WriteLine($"{i+1} Запчасть - {_brokenParts[i].Name}");
+                Console.WriteLine($"{i+1} Запчасть - {_brokenParts[i].Name} Цена - {_brokenParts[i].Price}");
             }
         }
 
