@@ -43,8 +43,8 @@ namespace CarService
 
             return false;
         }
-
-        public bool GetParts(string name)
+        
+        public bool TryGetParts(string name)
         {
             foreach (SparePart part in _parts)
             {

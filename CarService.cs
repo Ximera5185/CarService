@@ -15,7 +15,7 @@ namespace CarService
         private Warehouse _warehouse = new Warehouse();
 
         private int _cashier;
-
+        
         public CarService()
         {
             _cashier = 0;
@@ -56,7 +56,7 @@ namespace CarService
                 }
             }
         }
-
+        p
         private void AddCars()
         {
             int maxValueCars = 4;
@@ -79,11 +79,11 @@ namespace CarService
                 ServCar(fine, monetaryReward, car);
             }
         }
-
+        
         private void ServCar(int fine, int monetaryReward, Car car)
         {
             int pricePart;
-
+            
             while (car.Count > 0)
             {
                 Console.Clear();
