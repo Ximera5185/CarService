@@ -16,19 +16,19 @@ namespace CarService
 
         private int _cashier;
 
-        public CarService() 
+        public CarService()
         {
             _cashier = 0;
 
             AddCars();
-            
+
             RunSelectMenu();
         }
 
 
-        private void RunSelectMenu() 
+        private void RunSelectMenu()
         {
-            const string SelectCarMenu = "1";
+            const string ServCarMenu = "1";
             const string ExitProgrammMenu = "2";
 
             bool isProgrammWork = true;
@@ -40,14 +40,14 @@ namespace CarService
                 Console.Clear();
                 Console.WriteLine($"Баланс автосервиса {_cashier}");
                 Console.WriteLine($"Автомобилей для обслуживания {_cars.Count} штук");
-                Console.WriteLine($"Для выбора автомобиля введите {SelectCarMenu}");
+                Console.WriteLine($"Для ремонта автомобилей введите {ServCarMenu}");
                 Console.WriteLine($"Для выхода из программы введите {ExitProgrammMenu}");
 
                 inputUser = Console.ReadLine();
 
                 switch (inputUser)
                 {
-                    case SelectCarMenu:
+                    case ServCarMenu:
                         Work();
                         break;
                     case ExitProgrammMenu:
@@ -67,60 +67,7 @@ namespace CarService
             }
         }
 
-      /*  private void SelectCar() 
-        {
-            int index = 1;
-            int inputUser;
-
-            Console.Clear();
-            Console.WriteLine();
-
-            foreach (Car car in _cars)
-            {
-                Console.WriteLine($"{index} {car.Name}");
-
-                index++;
-            }
-
-            inputUser = GetUserNumber("Введите порядковый номер автомобиля для его выбора") - 1;
-
-            RepairCar(inputUser);
-        }*/
-
-       /* private void RepairCar(int indexCar) 
-        {
-            int inputUser;
-            int monetaryReward = 100;
-
-            Console.Clear();
-
-            _cars[indexCar].ShowBrokenParts();
-
-
-            Console.WriteLine();
-
-            inputUser = GetUserNumber("Введите порядковый номер детали для ремонта") -1;
-
-            if (_warehouse.GetParts(_cars[indexCar].GetNamePart(inputUser)))
-            {
-                Console.WriteLine("Заменили деталь");
-
-                _cars [indexCar].RemovePart(inputUser);
-
-                _cashier += monetaryReward;
-            }
-            else
-            {
-                Console.WriteLine("Подходящей детали на складе нет");
-            }
-
-            if (_cars[indexCar].GetNamePart())
-            {
-                _cars.RemoveAt(indexCar);
-            }
-        }*/
-
-        private void Work() 
+        private void Work()
         {
             int monetaryReward = 100;
 
@@ -138,7 +85,7 @@ namespace CarService
             {
                 Console.Clear();
 
-               car.ShowBrokenParts();
+                car.ShowBrokenParts();
 
                 Console.WriteLine();
 
