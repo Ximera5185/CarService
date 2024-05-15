@@ -8,6 +8,7 @@ namespace CarService
 {
     internal class CarService
     {
+    
         private CreatorCar _creatorCar = new CreatorCar();
 
         private Queue<Car> _cars = new Queue<Car>();
@@ -25,7 +26,7 @@ namespace CarService
             RunSelectMenu();
         }
 
-
+        
         private void RunSelectMenu()
         {
             const string ServCarMenu = "1";
@@ -56,7 +57,7 @@ namespace CarService
                 }
             }
         }
-        p
+        
         private void AddCars()
         {
             int maxValueCars = 4;

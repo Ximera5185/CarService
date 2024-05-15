@@ -8,6 +8,7 @@ namespace CarService
 {
     internal class Warehouse
     {
+        
         private DataBase _data = new DataBase();
 
         private List<SparePart> _parts = new List<SparePart>();
@@ -28,7 +29,7 @@ namespace CarService
 
             Console.WriteLine();
         }
-
+        
         public bool GetParts(string name) 
         {
             foreach (SparePart part in _parts)
