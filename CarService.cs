@@ -95,7 +95,7 @@ namespace CarService
                 Console.WriteLine();
 
                 int inputUser = GetUserNumber("Введите порядковый номер детали для ремонта") - 1;
-
+                
                 if (_warehouse.GetParts(car.GetNamePart(inputUser)))
                 {
                     car.RemovePart(inputUser);
